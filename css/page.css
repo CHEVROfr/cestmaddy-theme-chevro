@@ -1,0 +1,233 @@
+:root {
+    --rich-black-light: #101010;
+    --eerie-black: #1a1a1a;
+    --white: #fff;
+    --sky-blue-crayola: #3fc7e2;
+    --cyan-progress: #06ade4;
+    --cg-blue: #057296;
+    --medium-aquamarine: #0ce4b9;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--rich-black-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+body * {
+    outline: none !important;
+}
+
+/* ************
+        HEADER
+   ************ */
+header {
+    background: linear-gradient(45deg,var(--cg-blue),var(--medium-aquamarine));
+    margin: 1em 1em 4em 1em;
+    border-radius: 15px;
+    padding: 15px 25px 15px 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* Animated logo */
+.animated-logo {
+    height: 3.5rem;
+    width: 7.4rem;
+    transition: margin .5s;
+}
+.animated-logo svg {
+    fill: var(--white);
+    height: 3.5rem;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: opacity .8s;
+}
+.animated-logo svg:nth-child(1) {
+    position: absolute;
+}
+.animated-logo svg:nth-child(2) {
+    opacity: 0;
+}
+.animated-logo:hover > a > svg:nth-child(1) {
+    opacity: 0;
+}
+.animated-logo:hover > a > svg:nth-child(2) {
+    opacity: 1;
+}
+.animated-logo > a {
+    position: relative;
+    display: block;
+}
+/* end animated logo */
+
+header > .nav-spacer {
+    width: 100%;
+}
+
+header.markdown > a {
+    padding-top: 5px;
+    color: var(--white);
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-right: 20px;
+}
+
+header #open-burger-menu {
+    height: 2rem;
+    width: 2rem;
+    min-width: 2rem;
+    fill: #fff;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+header #burger-content {
+    position: fixed;
+    background: linear-gradient(45deg,var(--cg-blue),var(--medium-aquamarine));
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    right: -110%;
+    max-width: calc(100% - 2em);
+    width: 25em;
+    height: 100%;
+    align-items: center;
+    overflow: auto;
+    padding-top: 5em;
+    transition: right .5s ease-in-out;
+    margin: 1em;
+    border-radius: 15px;
+    height: calc(100% - 2em);
+}
+header #burger-content.open {
+    right: 0;
+}
+
+header #close-burger-menu {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    height: 2rem;
+    width: 2rem;
+    fill: #fff;
+}
+
+header #burger-content a {
+    margin-top: 15px;
+    color: var(--white);
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+@media all and (max-width: 650px) {
+    header.markdown > a {
+        display: none;
+    }
+}
+/* END HEADER */
+
+#content {
+    max-width: 100rem;
+    margin: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    flex: 3;
+    color: var(--white);
+
+}
+
+footer {
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+    color: #fff !important;
+}
+
+/* *******
+    STYLES
+********** */
+/* social icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-icons a:not(:last-child) {
+    margin-right: 15px;
+}
+.social-icons svg {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--white);
+}
+/* list image */
+.list_image ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.list_image li {
+    max-width: 35em;
+    padding: 15px;
+    color: var(--white);
+    font-size: 1.1em;
+    background: var(--eerie-black);
+    border-radius: 15px;
+    box-shadow: #2b2b2b -3px -3px 5px, #0d0d0d 3px 3px 5px;
+}
+.list_image li:not(:last-child) {
+    margin-bottom: 15px;
+}
+.list_image li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white);
+}
+.list_image li p {
+    margin-bottom: 0;
+}
+.list_image li a:hover {
+    text-decoration: none;
+}
+.list_image li a:hover img {
+    transform: scale(.8);
+}
+.list_image li img {
+    max-width: 5rem;
+    margin-right: 15px;
+    transition: all .5s ease-in-out;
+}
+
+@media all and (max-width: 1000px) {
+    #content {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+}
+
+@media all and (max-width: 850px) {
+    #content {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+@media all and (max-width: 600px) {
+    #content {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
