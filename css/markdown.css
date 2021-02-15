@@ -100,7 +100,7 @@
     text-decoration: underline;
 }
 .markdown strong {
-    font-weight: 600;
+    font-weight: bold;
 }
 .markdown hr {
     height: 0;
