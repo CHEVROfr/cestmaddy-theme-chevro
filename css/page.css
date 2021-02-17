@@ -7,6 +7,7 @@
     --cg-blue: #057296;
     --medium-aquamarine: #0ce4b9;
     --white-transparent: #ffffff6b;
+    --white-very-transparent: #ffffff1f;
 
     --background: url(/imgs/karl-bewick-reQNXC_J5M4-unsplash_medium.jpg);
     --background-small: url(/imgs/karl-bewick-reQNXC_J5M4-unsplash_small.jpg);
@@ -24,6 +25,7 @@ body {
     background-image: var(--background);
     background-size: cover;
     background-position: 50%;
+    background-attachment: fixed;
 }
 
 body * {
@@ -34,11 +36,21 @@ body * {
         HEADER
    ************ */
 header {
-    margin: 1em 1em 4em 1em;
-    border-radius: 15px;
-    padding: 15px 25px 15px 15px;
+    padding: 1.5rem 2rem 1.5rem 1.5rem;
     display: flex;
     align-items: center;
+
+    width: calc(100% - 3.5rem);
+
+    position: fixed;
+    z-index: 1000;
+
+    background-image: var(--background);
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+
+    box-shadow: var(--white-transparent) 0px 1px 5px;
 }
 
 /* Animated logo */
@@ -153,6 +165,7 @@ header #burger-content a {
     flex: 3;
     color: var(--white);
     font-size: 1.3em;
+    margin-top: 10rem;
 }
 
 footer {
@@ -201,7 +214,6 @@ footer {
 }
 .list_image li {
     max-width: 35em;
-    padding: 15px;
     color: var(--white);
     font-size: 1.1em;
     border-radius: 15px;
@@ -217,12 +229,17 @@ footer {
     align-items: center;
     text-decoration: none;
     color: var(--white);
+    padding: 15px;
+    background: transparent;
+    border-radius: 15px;
+    transition: background .2s ease-in-out;
 }
 .list_image li p {
     margin-bottom: 0;
 }
 .list_image li a:hover {
     text-decoration: none;
+    background: var(--white-very-transparent);
 }
 .list_image li a:hover img {
     transform: scale(1.1);
@@ -232,6 +249,22 @@ footer {
     margin-right: 15px;
     transition: all .5s ease-in-out;
     transform: scale(.9);
+}
+/* partners */
+.partners {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.partners img {
+    width: 10rem;
+    opacity: 1;
+    transition: opacity .3s ease-in-out;
+}
+
+.partners a:hover img {
+    opacity: .6;
 }
 
 @media all and (max-width: 1000px) {
