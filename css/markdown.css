@@ -93,7 +93,8 @@
     line-height: inherit;
 }
 .markdown a {
-    color: #0366d6;
+    color: #fff;
+    font-weight: bold;
     text-decoration: none;
 }
 .markdown a:hover {

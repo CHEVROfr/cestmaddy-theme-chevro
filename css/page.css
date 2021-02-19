@@ -220,6 +220,7 @@ footer {
     box-shadow: var(--white-transparent) -3px -3px 5px, var(--white-transparent) 3px 3px 5px;
     background: var(--background-small);
     background-size: cover;
+    width: 100%;
 }
 .list_image li:not(:last-child) {
     margin-bottom: 15px;
