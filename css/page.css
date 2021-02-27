@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/front/themes/chevro/font/Ubuntu/Ubuntu-Medium.eot');
+    src: url('/front/themes/chevro/font/Ubuntu/Ubuntu-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/front/themes/chevro/font/Ubuntu/Ubuntu-Medium.woff2') format('woff2'),
+        url('/front/themes/chevro/font/Ubuntu/Ubuntu-Medium.woff') format('woff'),
+        url('/front/themes/chevro/font/Ubuntu/Ubuntu-Medium.ttf') format('truetype'),
+        url('/front/themes/chevro/font/Ubuntu/Ubuntu-Medium.svg#Ubuntu-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --rich-black-light: #101010;
     --eerie-black: #1a1a1a;
@@ -9,7 +22,12 @@
     --white-transparent: #ffffff6b;
     --white-very-transparent: #ffffff1f;
 
-    --background: url(/imgs/karl-bewick-reQNXC_J5M4-unsplash_medium.jpg);
+    --eagle-blue: #004049;
+    --eagle-blue-clear: #006370;
+    --gainsboro: #e5e6ea;
+    --gainsboro-overlay: rgba(229, 230, 234, 0.607);
+
+    --background: url(/imgs/wes-hicks-2CErQcXbGLQ-unsplash.jpg);
     --background-small: url(/imgs/karl-bewick-reQNXC_J5M4-unsplash_small.jpg);
 }
 
@@ -21,8 +39,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
 
-    background-image: var(--background);
+    background-color: var(--gainsboro);
+    background-image: linear-gradient(0deg, var(--gainsboro-overlay), var(--gainsboro-overlay)), var(--background);
     background-size: cover;
     background-position: 50%;
     background-attachment: fixed;
@@ -36,16 +56,16 @@ body * {
         HEADER
    ************ */
 header {
-    padding: 1.5rem 2rem 1.5rem 1.5rem;
+    padding: 2rem;
     display: flex;
     align-items: center;
 
-    width: calc(100% - 3.5rem);
+    width: calc(100% - 4rem);
 
     position: fixed;
     z-index: 1000;
 
-    background-image: var(--background);
+    background-image: linear-gradient(0deg, var(--gainsboro-overlay), var(--gainsboro-overlay)), var(--background);
     background-size: cover;
     background-position: 50%;
     background-attachment: fixed;
@@ -53,108 +73,101 @@ header {
     box-shadow: var(--white-transparent) 0px 1px 5px;
 }
 
-/* Animated logo */
-.animated-logo {
-    height: 3.5rem;
-    width: 7.4rem;
-    transition: margin .5s;
+header p {
+    margin: 0;
 }
-.animated-logo svg {
-    fill: var(--white);
-    height: 3.5rem;
-    width: 100%;
-    top: 0;
-    left: 0;
-    transition: opacity .8s;
-}
-.animated-logo svg:nth-child(1) {
-    position: absolute;
-}
-.animated-logo svg:nth-child(2) {
-    opacity: 0;
-}
-.animated-logo:hover > a > svg:nth-child(1) {
-    opacity: 0;
-}
-.animated-logo:hover > a > svg:nth-child(2) {
-    opacity: 1;
-}
-.animated-logo > a {
-    position: relative;
-    display: block;
-}
-/* end animated logo */
 
-header > .nav-spacer {
+#burger-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: var(--eagle-blue);
+    margin-left: 15px;
+    transition: fill .2s ease-in-out;
+    margin-top: 5px;
+}
+
+#burger-button:hover {
+    fill: var(--eagle-blue-clear);
+}
+
+#nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+#nav > .spacer {
     width: 100%;
 }
 
-header.markdown > a {
-    padding-top: 5px;
-    color: var(--white);
+#nav a {
+    color: var(--eagle-blue);
     white-space: nowrap;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.3rem;
     margin-right: 20px;
+    text-decoration: none;
+    transition: color .2s ease-in-out;
 }
 
-header #open-burger-menu {
-    height: 2rem;
-    width: 2rem;
-    min-width: 2rem;
-    fill: #fff;
-    margin-left: 25px;
-    cursor: pointer;
+#nav a:hover {
+   color: var(--eagle-blue-clear);
 }
 
-header #burger-content {
+#nav > a > svg {
+    width: 14rem;
+    fill: var(--eagle-blue);
+    height: 4.6rem;
+}
+
+#burger-content {
     position: fixed;
+    right: -110%;
+    top: 0;
+    background: var(--gainsboro);
+    height: 100%;
+    width: 20rem;
+    padding-top: 7rem;
+
+    background-image: linear-gradient(0deg,var(--gainsboro-overlay),var(--gainsboro-overlay)),var(--background);
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+    box-shadow: var(--white-transparent) 0 1px 5px;
+
     display: flex;
     flex-direction: column;
-    top: 0;
-    right: -110%;
-    max-width: calc(100% - 2em);
-    width: 25em;
-    height: 100%;
     align-items: center;
-    overflow: auto;
-    padding-top: 5em;
     transition: right .5s ease-in-out;
-    margin: 1em;
-    border-radius: 15px;
-    height: calc(100% - 2em);
-    z-index: 100000000;
-    background: var(--background);
-    background-size: cover;
-    box-shadow: var(--white-transparent) -3px -3px 5px,#ffffff4f 3px 3px 5px;
-    background-position: 0%;
 }
-header #burger-content.open {
+
+#burger-content.open {
     right: 0;
 }
 
-header #close-burger-menu {
+#burger-content > a {
+    margin-right: 0;
+    margin-bottom: 15px;
+}
+
+#burger-content > a.mobile {
+    display: none;
+}
+
+#burger-close {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: var(--eagle-blue);
+    transition: fill .2s ease-in-out;
     position: absolute;
     top: 25px;
     right: 25px;
-    height: 2rem;
-    width: 2rem;
-    fill: #fff;
 }
 
-header #burger-content a {
-    margin-top: 15px;
-    color: var(--white);
-    white-space: nowrap;
-    font-weight: bold;
-    font-size: 1.2em;
+#burger-close:hover {
+    fill: var(--eagle-blue-clear);
 }
 
-@media all and (max-width: 650px) {
-    header.markdown > a {
-        display: none;
-    }
-}
 /* END HEADER */
 
 #content {
@@ -163,7 +176,7 @@ header #burger-content a {
     margin-left: 20%;
     margin-right: 20%;
     flex: 3;
-    color: var(--white);
+    color: var(--eagle-blue);
     font-size: 1.3em;
     margin-top: 10rem;
 }
@@ -174,7 +187,7 @@ footer {
     margin-right: 1rem;
     margin-top: 2rem;
     margin-bottom: .5rem;
-    color: #fff !important;
+    color: var(--eagle-blue) !important;
 }
 
 /* *******
@@ -193,12 +206,12 @@ footer {
     margin-right: 15px;
 }
 .social-icons a:hover svg {
-    fill: var(--white-transparent);
+    fill: var(--eagle-blue-clear);
 }
 .social-icons svg {
     width: 2rem;
     height: 2rem;
-    fill: var(--white);
+    fill: var(--eagle-blue);
     transition: fill .3s ease-in-out;
 }
 .social-icons p {
@@ -214,13 +227,15 @@ footer {
 }
 .list_image li {
     max-width: 35em;
-    color: var(--white);
     font-size: 1.1em;
     border-radius: 15px;
-    box-shadow: var(--white-transparent) -3px -3px 5px, var(--white-transparent) 3px 3px 5px;
-    background: var(--background-small);
     background-size: cover;
     width: 100%;
+    background: var(--eagle-blue);
+    transition: background .2s ease-in-out;
+}
+.list_image li:hover {
+    background: var(--eagle-blue-clear);
 }
 .list_image li:not(:last-child) {
     margin-bottom: 15px;
@@ -233,14 +248,12 @@ footer {
     padding: 15px;
     background: transparent;
     border-radius: 15px;
-    transition: background .2s ease-in-out;
 }
 .list_image li p {
-    margin-bottom: 0;
+    margin: 0;
 }
 .list_image li a:hover {
     text-decoration: none;
-    background: var(--white-very-transparent);
 }
 .list_image li a:hover img {
     transform: scale(1.1);
@@ -250,22 +263,6 @@ footer {
     margin-right: 15px;
     transition: all .5s ease-in-out;
     transform: scale(.9);
-}
-/* partners */
-.partners {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.partners img {
-    width: 10rem;
-    opacity: 1;
-    transition: opacity .3s ease-in-out;
-}
-
-.partners a:hover img {
-    opacity: .6;
 }
 
 @media all and (max-width: 1000px) {
@@ -282,9 +279,25 @@ footer {
     }
 }
 
+@media all and (max-width: 770px) {
+    #nav > a:not(:first-child) {
+        display: none;
+    }
+
+    #burger-content a.mobile {
+        display: initial;
+    }
+}
+
 @media all and (max-width: 600px) {
     #content {
         margin-left: 1rem;
         margin-right: 1rem;
+    }
+}
+
+@media all and (max-width: 500px) {
+    #burger-content {
+        width: 100%;
     }
 }
