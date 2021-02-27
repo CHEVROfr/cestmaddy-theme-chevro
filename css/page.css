@@ -27,8 +27,7 @@
     --gainsboro: #e5e6ea;
     --gainsboro-overlay: rgba(229, 230, 234, 0.607);
 
-    --background: url(/imgs/wes-hicks-2CErQcXbGLQ-unsplash.jpg);
-    --background-small: url(/imgs/karl-bewick-reQNXC_J5M4-unsplash_small.jpg);
+    --background: url(/imgs/wes-hicks-2CErQcXbGLQ-unsplash-medium.jpg);
 }
 
 body {
